@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha
+kind: Application
+metadata:
+  name: twitter-app
+  namespace: argocd # namespace, where argo is installed
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/stakkato95/twitter-helm.git
+    targetRevision: HEAD
+    path: helm
+
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: default # namespace, where app should be installed
+
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: false
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true

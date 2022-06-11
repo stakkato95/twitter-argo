@@ -1,0 +1,1 @@
+argocd app create -f application.yaml
