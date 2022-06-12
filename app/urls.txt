@@ -1,0 +1,4 @@
+http://localhost/
+http://localhost/analytics-service/analytics
+
+http://localhost:9000/
