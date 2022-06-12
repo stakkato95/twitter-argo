@@ -1,0 +1,8 @@
+Grafana
+http://localhost:31002/
+
+Jaeger
+http://localhost:31001/
+
+Kiali
+http://localhost:31000/
