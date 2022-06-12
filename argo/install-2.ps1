@@ -1,6 +1,7 @@
 # wait for argo to be ready
 echo "waiting for argo to be ready..."
-kubectl wait --for=condition=Ready svc/argocd-server -n argocd
+$serverPod = kubectl get pod -l app.kubernetes.io/name=argocd-server -n argocd -o name
+kubectl wait --for=condition=Ready $serverPod -n argocd
 
 # read default password
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" > password.txt
